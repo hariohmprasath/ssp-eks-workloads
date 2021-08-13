@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     namespace: team-team-d
-    server: us-east-1-blueprint
+    server: {{ .Values.spec.destination.server }}
   project: default
   source:
     repoURL: https://github.com/hariohmprasath/ssp-eks-workloads
