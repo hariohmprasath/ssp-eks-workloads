@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: team-team-d
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: team-team-d
+    server: us-east-1-blueprint
+  project: default
+  source:
+    repoURL: https://github.com/hariohmprasath/ssp-eks-workloads
+    path: teams/team-team-d/dev    
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
